@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
         spnItems = findViewById(R.id.spinnerWeb);
         wvPage = findViewById(R.id.webViewDisplay);
+        wvPage.getSettings().setAllowFileAccess(false);
+        wvPage.getSettings().setBuiltInZoomControls(true);
+        wvPage.getSettings().setJavaScriptEnabled(true);
 
         spnItems.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -32,11 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 wvPage.setWebViewClient(new WebViewClient());
                 if (pos == 0){
                     String url = "https://www.facebook.com/";
-                    wvPage.getSettings().setJavaScriptEnabled(true);
                     wvPage.loadUrl(url);
                 }else{
                     String url = "https://www.twitter.com/";
-                    wvPage.getSettings().setJavaScriptEnabled(true);
                     wvPage.loadUrl(url);
                 }
             }
